@@ -1,0 +1,1443 @@
+/* ===================================================================
+   biletlabs sections styles
+   minimalist editorial brutalist layout inspired by jarcos.work,
+   joshuabaker.com, and jonhowell.com.
+   pure black and white, all lowercase.
+   =================================================================== */
+
+/* --- 1. Minimalist Studio Hero Section (Awake.dev Inspired Card & Drafting Canvas) --- */
+.hero-minimal-section {
+  padding-top: clamp(4.25rem, 0.5vw, 3.25rem);
+  padding-bottom: 4.5rem;
+  position: relative;
+}
+
+.hero-canvas-container {
+  width: 100%;
+}
+
+.hero-canvas-card {
+  position: relative;
+  background: #08080a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 28px;
+  overflow: hidden;
+  padding: clamp(3rem, 6vw, 5.5rem) clamp(2.5rem, 5vw, 4.5rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: clamp(480px, 65vh, 640px);
+}
+
+.hero-drafting-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.32;
+  transition: opacity var(--transition-normal);
+}
+
+.hero-card-body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-width: 1100px;
+}
+
+.hero-lead-statement {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.6vw, 3.35rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+}
+
+.hero-sub-statement {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 800px;
+}
+
+.hero-actions-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+/* --- 2. Focus Section (Horizontal Expanding Accordion) --- */
+.focus-section {
+  padding: 4.5rem 0 5.5rem;
+  border-top: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+.focus-header-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 2.25rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.focus-header-hint {
+  font-size: 0.88rem;
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+.focus-accordion {
+  display: flex;
+  gap: 1.15rem;
+  height: 560px;
+  width: 100%;
+}
+
+.focus-card {
+  flex: 1;
+  min-width: 76px;
+  height: 100%;
+  border-radius: var(--radius-lg);
+  background-color: #09090b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: flex 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: flex;
+}
+
+/* Inactive Card Hover Feedback */
+.focus-card:not(.is-active):hover {
+  background-color: #121216;
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.focus-card:not(.is-active):hover .focus-collapsed-num {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.focus-card:not(.is-active):hover .focus-collapsed-title {
+  color: #ffffff;
+}
+
+/* Active State */
+.focus-card.is-active {
+  flex: 4.8;
+  background-color: #0d0d10;
+  border-color: rgba(255, 255, 255, 0.22);
+  cursor: default;
+}
+
+/* Collapsed Column: Anchored firmly to left 76px to prevent horizontal drift */
+.focus-card-collapsed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 76px;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.25rem 0;
+  z-index: 2;
+  user-select: none;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.14s;
+}
+
+.focus-collapsed-num {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.38);
+  letter-spacing: 0.05em;
+  transform: translateY(0);
+  transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.12s;
+}
+
+.focus-collapsed-title {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg) translateY(0);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.52);
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+  margin-top: auto;
+  transition: color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.12s;
+}
+
+/* When Card Becomes Active: Collapsed Track Glides Upward & Fades */
+.focus-card.is-active .focus-card-collapsed {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.focus-card.is-active .focus-collapsed-num {
+  transform: translateY(-12px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.focus-card.is-active .focus-collapsed-title {
+  transform: rotate(180deg) translateY(-24px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Expanded State: Fixed Minimum Width to Prevent Text Reflow */
+.focus-card-expanded {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 480px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1.75rem;
+  gap: 1.25rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(18px);
+  transition: opacity 0.18s ease, transform 0.22s ease;
+  overflow: hidden;
+}
+
+/* When Active: Content Glides In Seamlessly */
+.focus-card.is-active .focus-card-expanded {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.16s,
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.14s;
+}
+
+/* Image Placeholder Slot */
+.focus-media-placeholder {
+  width: 100%;
+  height: 270px;
+  border-radius: var(--radius-md);
+  background-color: #060608;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  transform: scale(0.98);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.14s,
+              border-color 0.3s ease,
+              background-color 0.3s ease;
+}
+
+.focus-card.is-active .focus-media-placeholder {
+  transform: scale(1);
+}
+
+.focus-card:hover .focus-media-placeholder {
+  border-color: rgba(255, 255, 255, 0.24);
+  background-color: #08080a;
+}
+
+.placeholder-empty-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+  letter-spacing: 0.05em;
+  opacity: 0.6;
+}
+
+.placeholder-empty-tag svg,
+.placeholder-empty-tag .lucide {
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+}
+
+/* Expanded Content Body with Subtle Staggered Entry */
+.focus-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: auto;
+  transform: translateY(12px);
+  opacity: 0;
+  transition: transform 0.22s ease, opacity 0.18s ease;
+}
+
+.focus-card.is-active .focus-card-body {
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.18s,
+              opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.18s;
+}
+
+.focus-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.focus-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.focus-product-tag {
+  font-family: var(--font-brand);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+}
+
+.focus-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.focus-card-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 480px;
+}
+
+.focus-card-action {
+  margin-top: 0.5rem;
+}
+
+.focus-product-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 0.35rem 0.45rem 0.35rem 1.15rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-strong);
+  background: #000000;
+  transition: all var(--transition-fast);
+}
+
+.focus-product-link .btn-arrow-bubble {
+  width: 28px;
+  height: 28px;
+}
+
+.focus-product-link .btn-arrow-bubble svg,
+.focus-product-link .btn-arrow-bubble .lucide {
+  width: 13px;
+  height: 13px;
+}
+
+.focus-product-link:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+.focus-product-link:hover .btn-arrow-bubble {
+  background: #000000;
+  color: #ffffff;
+  transform: translate(2px, -2px);
+}
+
+/* --- 3. Editorial Two-Column Rows (Inspired by jarcos.work) --- */
+.editorial-section {
+  padding: 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.editorial-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
+  padding: 4rem 0;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.editorial-row:first-child {
+  border-top: none;
+}
+
+.editorial-label {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  letter-spacing: -0.01em;
+  position: sticky;
+  top: 2rem;
+}
+
+.editorial-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.editorial-statement {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.editorial-text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 800px;
+}
+
+/* --- Who We Are & What We Do (Studio Minimalist Monochromatic Style) --- */
+.who-we-are-creator-card {
+  margin-top: 1.5rem;
+  padding: 1.5rem 1.75rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  max-width: 820px;
+}
+
+.creator-badge-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.35rem;
+}
+
+.creator-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.creator-role {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+.creator-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.who-we-are-action {
+  margin-top: 1.5rem;
+}
+
+/* What We Do Stacking Cards (Focus & Philosophy Aligned) */
+.what-we-do-row {
+  position: relative;
+  padding: 5rem 0 6rem;
+}
+
+.sticky-label {
+  position: sticky;
+  top: 110px;
+  align-self: flex-start;
+}
+
+.stack-cards-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 840px;
+  padding-bottom: 360px;
+}
+
+.stack-card {
+  position: sticky;
+  border-radius: 20px;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  padding: clamp(1.4rem, 2.5vw, 1.85rem) clamp(1.75rem, 3.2vw, 2.4rem);
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  transform-origin: center top;
+  --stack-scale: 1;
+  --stack-brightness: 1;
+  --stack-opacity: 1;
+  transform: scale(var(--stack-scale));
+  filter: brightness(var(--stack-brightness));
+  opacity: var(--stack-opacity);
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), filter 0.22s ease, opacity 0.22s ease, border-color 0.25s ease;
+  will-change: transform, filter, opacity;
+}
+
+.stack-card:hover:not(.is-highlight) {
+  border-color: var(--border-strong);
+  --stack-brightness: 1.08;
+}
+
+/* Sequential Stacking Offsets & Stepped Widths */
+.stack-card[data-card="1"] {
+  top: 80px;
+  z-index: 1;
+  width: calc(100% - 32px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stack-card[data-card="2"] {
+  top: 92px;
+  z-index: 2;
+  width: calc(100% - 24px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stack-card[data-card="3"] {
+  top: 104px;
+  z-index: 3;
+  width: calc(100% - 16px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stack-card[data-card="4"] {
+  top: 116px;
+  z-index: 4;
+  width: calc(100% - 8px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stack-card[data-card="5"] {
+  top: 128px;
+  z-index: 5;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stack-card[data-card="6"] {
+  top: 196px;
+  z-index: 6;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+}
+
+.stack-card-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.stack-card-top-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stack-card-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.stack-card-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.2vw, 1.65rem);
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.stack-card-desc {
+  font-size: 0.96rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 620px;
+}
+
+/* Big bold low-opacity watermark number below the text */
+.stack-card-watermark-num {
+  position: absolute;
+  right: clamp(1.5rem, 3vw, 2.25rem);
+  bottom: -0.35rem;
+  font-family: var(--font-display);
+  font-size: clamp(3.75rem, 7.5vw, 5.75rem);
+  font-weight: 800;
+  line-height: 0.75;
+  color: rgba(255, 255, 255, 0.055);
+  letter-spacing: -0.04em;
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.stack-card:hover .stack-card-watermark-num {
+  color: rgba(255, 255, 255, 0.095);
+  transform: translateY(-2px);
+}
+
+/* Card 6: Pure High-Contrast Monochromatic Highlight (Pure White Card in Front) */
+.stack-card.is-highlight {
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #ffffff;
+}
+
+.stack-card.is-highlight .stack-card-icon-wrap {
+  background: #000000;
+  border-color: #000000;
+  color: #ffffff;
+}
+
+.stack-card.is-highlight .stack-card-title {
+  color: #000000;
+  font-weight: 700;
+}
+
+.stack-card.is-highlight .stack-card-desc {
+  color: rgba(0, 0, 0, 0.75);
+  font-weight: 500;
+}
+
+.stack-card.is-highlight .stack-card-watermark-num {
+  color: rgba(0, 0, 0, 0.065);
+}
+
+.stack-card.is-highlight:hover .stack-card-watermark-num {
+  color: rgba(0, 0, 0, 0.12);
+}
+
+/* Manifesto Statement after cards */
+.what-we-do-manifesto {
+  margin-top: 4.5rem;
+  padding-top: 3rem;
+  padding-bottom: 6rem;
+  max-width: 780px;
+}
+
+.manifesto-statement-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 3.5vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.25;
+  color: #ffffff;
+  margin: 0 0 2.25rem;
+}
+
+.manifesto-arrow-wrap {
+  display: flex;
+}
+
+/* --- 3. Principles Section (Inspired by ownitt.fr - Pure Black & White) --- */
+.principles-helper-note {
+  font-size: 0.82rem;
+  color: var(--text-tertiary);
+  margin-top: 0.75rem;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.principles-ownitt-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.principle-ownitt-row {
+  display: flex;
+  flex-direction: column;
+  padding: 2.25rem 0;
+  border-top: 1px solid var(--border-subtle);
+  position: relative;
+  cursor: pointer;
+  transition: padding 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.principle-ownitt-row:last-child {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.principle-ownitt-row:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.principle-row-main {
+  display: grid;
+  grid-template-columns: 64px 1fr 36px;
+  align-items: start;
+  gap: 1.5rem;
+}
+
+.principle-meta-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 0.75rem;
+}
+
+.principle-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-primary);
+  display: inline-block;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.principle-ownitt-row:hover .principle-dot,
+.principle-ownitt-row.is-active .principle-dot {
+  transform: scale(1.35);
+}
+
+.principle-num {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+.principle-ownitt-row:hover .principle-num,
+.principle-ownitt-row.is-active .principle-num {
+  color: var(--text-primary);
+}
+
+.principle-title-wrap {
+  position: relative;
+  display: block;
+  user-select: none;
+  padding-bottom: clamp(10px, 1.8vw, 18px);
+}
+
+.principle-title-solid {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-brand);
+  font-size: clamp(2rem, 4.8vw, 4.2rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  margin: 0;
+  word-break: break-word;
+}
+
+.principle-title-outline {
+  position: absolute;
+  left: 0;
+  top: clamp(8px, 1.5vw, 16px);
+  z-index: 1;
+  font-family: var(--font-brand);
+  font-size: clamp(2rem, 4.8vw, 4.2rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.22);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  pointer-events: none;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), -webkit-text-stroke-color 0.3s ease;
+  user-select: none;
+  word-break: break-word;
+}
+
+.principle-ownitt-row:hover .principle-title-solid,
+.principle-ownitt-row.is-active .principle-title-solid {
+  transform: translateY(-4px);
+}
+
+.principle-ownitt-row:hover .principle-title-outline,
+.principle-ownitt-row.is-active .principle-title-outline {
+  transform: translateY(6px);
+  -webkit-text-stroke-color: rgba(255, 255, 255, 0.45);
+}
+
+.principle-toggle-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: var(--text-tertiary);
+  padding-top: 0.65rem;
+  transition: color 0.3s ease;
+}
+
+.principle-toggle-indicator svg,
+.principle-toggle-indicator .lucide {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.principle-ownitt-row:hover .principle-toggle-indicator,
+.principle-ownitt-row.is-active .principle-toggle-indicator {
+  color: var(--text-primary);
+}
+
+.principle-ownitt-row.is-active .principle-toggle-indicator svg,
+.principle-ownitt-row.is-active .principle-toggle-indicator .lucide {
+  transform: rotate(-45deg);
+}
+
+.principle-drawer {
+  margin-left: calc(64px + 1.5rem);
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.48s cubic-bezier(0.16, 1, 0.3, 1),
+              margin-top 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 0;
+}
+
+.principle-ownitt-row.is-active .principle-drawer {
+  grid-template-rows: 1fr;
+  margin-top: 1.25rem;
+}
+
+.principle-drawer-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.principle-desc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 720px;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.38s ease 0.08s, transform 0.42s cubic-bezier(0.16, 1, 0.3, 1) 0.08s;
+}
+
+.principle-ownitt-row.is-active .principle-desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- 4. Products Section (Inspired by metic.studio/en/work) --- */
+.products-showcase-section {
+  padding: 5rem 0 6.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.products-header-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.products-header-subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  letter-spacing: 0.04em;
+}
+
+/* Products Metic List */
+.products-metic-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.metic-product-row {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(3rem, 6vw, 5.5rem) 0;
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+.metic-product-row:first-child {
+  padding-top: 1rem;
+}
+
+.metic-product-row:last-child {
+  border-bottom: none;
+}
+
+/* Row Eyebrow / Number indicator */
+.metic-row-eyebrow {
+  margin-bottom: 1.5rem;
+}
+
+.metic-eyebrow-text {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Row Columns: Left and Right */
+.metic-row-columns {
+  display: grid;
+  grid-template-columns: 1.18fr 1fr;
+  gap: clamp(3rem, 6vw, 6rem);
+  align-items: center;
+}
+
+/* Alternating Row: Even numbered items have description left, image right */
+.metic-product-row.is-reversed .metic-row-columns {
+  grid-template-columns: 1fr 1.18fr;
+}
+
+.metic-product-row.is-reversed .metic-media-col {
+  order: 2;
+}
+
+.metic-product-row.is-reversed .metic-content-col {
+  order: 1;
+}
+
+/* --- Media Column & Mockup Window Frame (Metic.studio signature) --- */
+.metic-media-col {
+  position: relative;
+}
+
+.metic-window-frame {
+  background: #09090b;
+  border: 1px solid var(--border-strong);
+  border-radius: 22px;
+  overflow: visible;
+  position: relative;
+  transition: transform var(--transition-normal), border-color var(--transition-normal);
+  cursor: pointer;
+}
+
+.metic-window-frame:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.metic-window-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  background: #0d0d10;
+  border-bottom: 1px solid var(--border-subtle);
+  border-top-left-radius: 21px;
+  border-top-right-radius: 21px;
+}
+
+.window-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 50px;
+}
+
+.win-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  transition: background-color var(--transition-fast);
+}
+
+.metic-window-frame:hover .win-dot:nth-child(1) {
+  background: #ff5f56;
+}
+.metic-window-frame:hover .win-dot:nth-child(2) {
+  background: #ffbd2e;
+}
+.metic-window-frame:hover .win-dot:nth-child(3) {
+  background: #27c93f;
+}
+
+.window-domain-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.2rem 0.85rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+}
+
+.domain-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.window-header-spacer {
+  width: 50px;
+}
+
+.metic-window-viewport {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: var(--bg-surface-elevated);
+  position: relative;
+  overflow: hidden;
+  border-bottom-left-radius: 21px;
+  border-bottom-right-radius: 21px;
+}
+
+/* Floating Performance Badge (Metic.studio signature bottom-right badge) */
+.metic-floating-badge {
+  position: absolute;
+  right: 1.25rem;
+  bottom: -1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-full);
+  background: #000000;
+  border: 1px solid var(--border-strong);
+  z-index: 3;
+  pointer-events: none;
+  transition: transform var(--transition-fast);
+}
+
+.metic-window-frame:hover .metic-floating-badge {
+  transform: translateY(-2px);
+  border-color: #ffffff;
+}
+
+.badge-score {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 0.88rem;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.badge-text {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-tertiary);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* --- Content Column --- */
+.metic-content-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Huge Faded Watermark Number */
+.metic-watermark-num {
+  position: absolute;
+  top: -2rem;
+  right: 0;
+  font-family: var(--font-display);
+  font-size: clamp(6.5rem, 12vw, 10.5rem);
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.045);
+  line-height: 0.75;
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+  letter-spacing: -0.04em;
+}
+
+.metic-content-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.metic-category-meta {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  letter-spacing: 0.04em;
+}
+
+.metic-project-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.metic-project-headline {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.metic-project-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 520px;
+}
+
+/* Pill Tags Row */
+.metic-tags-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+
+.metic-tag-pill {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+  background: rgba(255, 255, 255, 0.03);
+  transition: all var(--transition-fast);
+}
+
+.metic-tag-pill:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Action Button */
+.metic-action-row {
+  margin-top: 0.75rem;
+  display: flex;
+}
+
+/* Products summary bar below list */
+.products-bottom-bar {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.products-count-label {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* --- 5. Minimalist Contact Section (No old form!) --- */
+.contact-minimal-section {
+  padding: 4.5rem 0 5rem;
+  border-top: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+.contact-section-header {
+  margin-bottom: 2.25rem;
+}
+
+.contact-metic-card {
+  position: relative;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-subtle);
+  border-radius: 28px;
+  overflow: hidden;
+  padding: clamp(3rem, 5.5vw, 5rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 480px;
+  transition: border-color 0.4s ease;
+}
+
+.contact-metic-card:hover {
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.contact-card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-width: 580px;
+}
+
+.contact-metic-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.8vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  color: var(--text-primary);
+}
+
+.contact-metic-subtext {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: 500px;
+}
+
+.contact-metic-action {
+  margin-top: 0.5rem;
+  display: flex;
+}
+
+.contact-metic-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.55rem 0.65rem 0.55rem 1.6rem;
+  border-radius: var(--radius-full);
+  background: #000000;
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.contact-metic-btn .btn-arrow-bubble {
+  width: 40px;
+  height: 40px;
+}
+
+.contact-metic-btn .btn-arrow-bubble svg,
+.contact-metic-btn .btn-arrow-bubble .lucide {
+  width: 18px;
+  height: 18px;
+}
+
+.contact-metic-btn:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+.contact-metic-btn:hover .btn-arrow-bubble {
+  background: #000000;
+  color: #ffffff;
+  transform: translate(2px, -2px);
+}
+
+.contact-metic-meta-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.75rem;
+  margin-top: 1rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+}
+
+.contact-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.contact-meta-item span.label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+.contact-meta-item span.val {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Iconic Metic-style Geometric Disc (White in our Black theme) */
+.contact-graphic-wrap {
+  position: absolute;
+  right: -8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(380px, 48vw, 680px);
+  height: clamp(380px, 48vw, 680px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.contact-geometric-disc {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #ffffff;
+  position: relative;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-metic-card:hover .contact-geometric-disc {
+  transform: scale(1.03);
+}
+
+.disc-accent-target {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.disc-accent-target::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+/* --- 6. Colossal JARCOS-style Footer --- */
+.site-footer-minimal {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-primary);
+}
+
+.footer-top-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+.footer-col-title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.footer-col-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-col-links a {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+}
+
+.footer-col-links a:hover {
+  color: var(--text-primary);
+}
+
+.footer-credits-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Massive Colossal JARCOS-style Wordmark */
+.colossal-brand-wrap {
+  width: 100%;
+  overflow: hidden;
+  padding-top: 2rem;
+  margin-top: 2.5rem;
+  border-top: 1px solid var(--border-subtle);
+  line-height: 0.82;
+  user-select: none;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+}
+
+.colossal-brand {
+  font-family: var(--font-brand);
+  font-size: clamp(3.75rem, 25.5vw, 21rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  text-align: center;
+  white-space: nowrap;
+  width: 100%;
+  display: block;
+  opacity: 0.98;
+}

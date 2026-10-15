@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>biletlabs | Minimalist, Distraction-Free Software</title>
+  <meta name="description"
+    content="biletlabs builds simple, distraction-free applications for writing, everyday productivity, task planning, fitness, and personal finance.">
+  <meta name="keywords"
+    content="minimalist apps, distraction-free software, productivity tools, notes app, task manager, workout tracker, personal finance ledger, Bilet, Bilet-X, Bilo, LiftUp, Rupa">
+  <meta name="author" content="biletlabs">
+
+  <!-- Open Graph & Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="biletlabs | Minimalist, Distraction-Free Software">
+  <meta property="og:description"
+    content="Thoughtful digital tools for writing, planning, managing money, training, and staying focused. Built with intention.">
+  <meta property="og:image" content="/assets/logo.svg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <!-- Google Fonts: Funnel Display, Inter Display & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Inter:opsz,wght@14..32,100..900&family=Inter+Tight:wght@400..800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+  <main id="main-content">
+    <!-- Hero Section (Inspired by awakeagency.dev drafting canvas in Dark Mode) -->
+    <section class="hero-minimal-section" id="hero">
+      <div class="container hero-canvas-container">
+        <div class="hero-canvas-card">
+          <!-- Background Architectural Drafting Lines & Vector Wireframe Blueprint -->
+          <svg class="hero-drafting-svg" viewBox="0 0 1400 760" fill="none" xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <!-- Ambient drafting glow -->
+              <radialGradient id="draftingGlow" cx="22%" cy="42%" r="60%">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.045" />
+                <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+              </radialGradient>
+            </defs>
+
+            <!-- Subtle background illumination -->
+            <rect width="1400" height="760" fill="url(#draftingGlow)" />
+
+            <!-- 1. Architectural Grid Lines -->
+            <g class="drafting-grid" stroke="rgba(255, 255, 255, 0.055)" stroke-width="1">
+              <!-- Horizontal grid lines across entire canvas -->
+              <line x1="0" y1="210" x2="1400" y2="210" />
+              <line x1="0" y1="560" x2="1400" y2="560" />
+
+              <!-- Vertical grid lines across entire canvas -->
+              <line x1="90" y1="0" x2="90" y2="760" />
+              <line x1="240" y1="0" x2="240" y2="760" />
+              <line x1="510" y1="0" x2="510" y2="760" />
+              <line x1="1260" y1="0" x2="1260" y2="760" />
+            </g>
+
+            <!-- Intersection Crosshair Coordinates (+) -->
+            <g class="drafting-crosshairs" stroke="rgba(255, 255, 255, 0.2)" stroke-width="1">
+              <path d="M 85 210 H 95 M 90 205 V 215" />
+              <path d="M 235 210 H 245 M 240 205 V 215" />
+              <path d="M 505 210 H 515 M 510 205 V 215" />
+              <path d="M 1255 210 H 1265 M 1260 205 V 215" />
+
+              <path d="M 85 560 H 95 M 90 555 V 565" />
+              <path d="M 235 560 H 245 M 240 555 V 565" />
+              <path d="M 505 560 H 515 M 510 555 V 565" />
+              <path d="M 1255 560 H 1265 M 1260 555 V 565" />
+            </g>
+
+            <!-- 2. Vector Bézier Arc & Sector Wedge (Left to Center-Left) -->
+            <g class="drafting-vector-arc">
+              <!-- Shaded sector arc wedge -->
+              <path d="M 350 360 L 205 235 A 195 195 0 0 1 500 210 Z" fill="rgba(255, 255, 255, 0.02)" />
+
+              <!-- Sweeping vector curve path -->
+              <path d="M 195 410 C 180 255 270 200 510 210" stroke="rgba(255, 255, 255, 0.18)" stroke-width="1.5" />
+
+              <!-- Radial angle construction guides -->
+              <line x1="350" y1="360" x2="205" y2="235" stroke="rgba(255, 255, 255, 0.09)" stroke-dasharray="3 3" />
+              <line x1="350" y1="360" x2="500" y2="210" stroke="rgba(255, 255, 255, 0.09)" stroke-dasharray="3 3" />
+
+              <!-- Center origin pivot node -->
+              <circle cx="350" cy="360" r="3.5" fill="rgba(255, 255, 255, 0.7)" />
+              <circle cx="350" cy="360" r="9" stroke="rgba(255, 255, 255, 0.25)" stroke-width="1" />
+
+              <!-- Tangent Handle 1 (at point 195, 410) with circular endpoints -->
+              <line x1="140" y1="280" x2="250" y2="540" stroke="rgba(255, 255, 255, 0.18)" stroke-width="1.2" />
+              <circle cx="140" cy="280" r="3.5" fill="#08080a" stroke="rgba(255, 255, 255, 0.6)" stroke-width="1.2" />
+              <circle cx="250" cy="540" r="3.5" fill="#08080a" stroke="rgba(255, 255, 255, 0.6)" stroke-width="1.2" />
+
+              <!-- Tangent Handle 2 (at point 510, 210) with circular endpoints -->
+              <line x1="380" y1="210" x2="640" y2="210" stroke="rgba(255, 255, 255, 0.18)" stroke-width="1.2" />
+              <circle cx="380" cy="210" r="3.5" fill="#08080a" stroke="rgba(255, 255, 255, 0.6)" stroke-width="1.2" />
+              <circle cx="640" cy="210" r="3.5" fill="#08080a" stroke="rgba(255, 255, 255, 0.6)" stroke-width="1.2" />
+
+              <!-- Arc Anchor Nodes -->
+              <rect x="191" y="406" width="8" height="8" rx="1" fill="#08080a" stroke="rgba(255, 255, 255, 0.6)"
+                stroke-width="1.2" />
+              <rect x="506" y="206" width="8" height="8" rx="1" fill="#08080a" stroke="rgba(255, 255, 255, 0.6)"
+                stroke-width="1.2" />
+            </g>
+
+            <!-- 3. Vector Bounding Box with Corner & Midpoint Handles (Bottom-Left) -->
+            <g class="drafting-bounding-box">
+              <!-- Shaded lower sub-quadrant -->
+              <rect x="90" y="560" width="150" height="150" fill="rgba(255, 255, 255, 0.02)" />
+
+              <!-- Main bounding rectangle -->
+              <rect x="90" y="410" width="150" height="300" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1.2" />
+
+              <!-- Diagonal construction guide line -->
+              <line x1="90" y1="410" x2="240" y2="710" stroke="rgba(255, 255, 255, 0.07)" stroke-dasharray="4 4" />
+
+              <!-- Transform handles (8 square nodes around the bounding box) -->
+              <rect x="86" y="406" width="8" height="8" rx="1" fill="#08080a" stroke="rgba(255, 255, 255, 0.55)"
+                stroke-width="1.2" />
+              <rect x="161" y="406" width="8" height="8" rx="1" fill="#08080a" stroke="rgba(255, 255, 255, 0.55)"
+                stroke-width="1.2" />
+              <rect x="236" y="406" width="8" height="8" rx="1" fill="#08080a" stroke="rgba(255, 255, 255, 0.55)"
+                stroke-width="1.2" />
+              <rect x="86" y="556" width="8" height="8" rx="1" fill="#08080a" stroke="rgba(255, 255, 255, 0.55)"
+                stroke-width="1.2" />
+              <rect x="236" y="556" width="8" height="8" rx="1" fill="#08080a" stroke="rgba(255, 255, 255, 0.55)"
+                stroke-width="1.2" />
+              <rect x="86" y="706" width="8" height="8" rx="1" fill="#08080a" stroke="rgba(255, 255, 255, 0.55)"
+                stroke-width="1.2" />
+              <rect x="161" y="706" width="8" height="8" rx="1" fill="#08080a" stroke="rgba(255, 255, 255, 0.55)"
+                stroke-width="1.2" />
+              <rect x="236" y="706" width="8" height="8" rx="1" fill="#08080a" stroke="rgba(255, 255, 255, 0.55)"
+                stroke-width="1.2" />
+            </g>
+
+          </svg>
+
+          <!-- Hero Main Content (Centered) -->
+          <div class="hero-card-body">
+            <h1 class="hero-lead-statement">
+              Software that gets out of your way.<br>
+              Simple, distraction-free tools for daily life.
+            </h1>
+            <p class="hero-sub-statement">
+              Thoughtful applications for writing, everyday productivity, task planning, fitness, and personal finance.
+              Built with intention, quiet design, and deep respect for your time.
+            </p>
+
+            <div class="hero-actions-row">
+              <a href="mailto:contact@biletlabs.com" class="minimal-pill-btn primary">
+                <span>Pop up a message</span>
+                <span class="btn-arrow-bubble">
+                  <i data-lucide="arrow-right"></i>
+                </span>
+              </a>
+              <a href="#products" class="minimal-pill-btn">
+                <span>Explore products</span>
+                <span class="btn-arrow-bubble">
+                  <i data-lucide="arrow-down"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Focus Horizontal Expanding Accordion Section -->
+    <section class="focus-section" id="focus">
+      <div class="container">
+        <div class="focus-header-row">
+          <div class="editorial-label">
+            <span>Focus ↘</span>
+          </div>
+
+        </div>
+
+        <div class="focus-accordion" id="focus-accordion">
+          <!-- Card 01: Writing -->
+          <article class="focus-card is-active" data-focus="writing" data-index="01">
+            <div class="focus-card-collapsed">
+              <span class="focus-collapsed-num">01</span>
+              <span class="focus-collapsed-title">Distraction-free writing</span>
+            </div>
+            <div class="focus-card-expanded">
+              <div class="focus-media-placeholder" aria-label="Media slot for writing tools">
+                <div class="placeholder-empty-tag">
+                  <i data-lucide="image"></i>
+                  <span>Empty Media Slot</span>
+                </div>
+              </div>
+              <div class="focus-card-body">
+                <div class="focus-meta-row">
+                  <span class="focus-badge">01 / Writing</span>
+                  <span class="focus-product-tag">Bilet</span>
+                </div>
+                <h3 class="focus-card-title">Distraction-free writing</h3>
+                <p class="focus-card-desc">
+                  Thoughtful interfaces for essays, daily notes, and quiet journaling. Designed with calm typography and
+                  zero notification noise.
+                </p>
+                <div class="focus-card-action">
+                  <a href="#products" class="focus-product-link footer-product-trigger" data-product-id="bilet">
+                    <span>Explore Bilet</span>
+                    <span class="btn-arrow-bubble">
+                      <i data-lucide="arrow-up-right"></i>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 02: Productivity -->
+          <article class="focus-card" data-focus="productivity" data-index="02">
+            <div class="focus-card-collapsed">
+              <span class="focus-collapsed-num">02</span>
+              <span class="focus-collapsed-title">Desktop productivity</span>
+            </div>
+            <div class="focus-card-expanded">
+              <div class="focus-media-placeholder" aria-label="Media slot for desktop productivity">
+                <div class="placeholder-empty-tag">
+                  <i data-lucide="image"></i>
+                  <span>Empty Media Slot</span>
+                </div>
+              </div>
+              <div class="focus-card-body">
+                <div class="focus-meta-row">
+                  <span class="focus-badge">02 / Productivity</span>
+                  <span class="focus-product-tag">Bilet-X</span>
+                </div>
+                <h3 class="focus-card-title">Desktop productivity</h3>
+                <p class="focus-card-desc">
+                  Native macOS and Windows companion engineered for instant keyboard command execution, quick captures,
+                  and offline speed.
+                </p>
+                <div class="focus-card-action">
+                  <a href="#products" class="focus-product-link footer-product-trigger" data-product-id="bilet-x">
+                    <span>Explore Bilet-X</span>
+                    <span class="btn-arrow-bubble">
+                      <i data-lucide="arrow-up-right"></i>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 03: Projects -->
+          <article class="focus-card" data-focus="planning" data-index="03">
+            <div class="focus-card-collapsed">
+              <span class="focus-collapsed-num">03</span>
+              <span class="focus-collapsed-title">Project & task planning</span>
+            </div>
+            <div class="focus-card-expanded">
+              <div class="focus-media-placeholder" aria-label="Media slot for project planning">
+                <div class="placeholder-empty-tag">
+                  <i data-lucide="image"></i>
+                  <span>Empty Media Slot</span>
+                </div>
+              </div>
+              <div class="focus-card-body">
+                <div class="focus-meta-row">
+                  <span class="focus-badge">03 / Planning</span>
+                  <span class="focus-product-tag">Bilo</span>
+                </div>
+                <h3 class="focus-card-title">Project & task planning</h3>
+                <p class="focus-card-desc">
+                  Focused boards, structured daily roadmaps, and calm checklists. Built to help you get actual work done
+                  rather than managing tool configurations.
+                </p>
+                <div class="focus-card-action">
+                  <a href="#products" class="focus-product-link footer-product-trigger" data-product-id="bilo">
+                    <span>Explore Bilo</span>
+                    <span class="btn-arrow-bubble">
+                      <i data-lucide="arrow-up-right"></i>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 04: Fitness -->
+          <article class="focus-card" data-focus="fitness" data-index="04">
+            <div class="focus-card-collapsed">
+              <span class="focus-collapsed-num">04</span>
+              <span class="focus-collapsed-title">Intentional fitness</span>
+            </div>
+            <div class="focus-card-expanded">
+              <div class="focus-media-placeholder" aria-label="Media slot for intentional fitness">
+                <div class="placeholder-empty-tag">
+                  <i data-lucide="image"></i>
+                  <span>Empty Media Slot</span>
+                </div>
+              </div>
+              <div class="focus-card-body">
+                <div class="focus-meta-row">
+                  <span class="focus-badge">04 / Fitness</span>
+                  <span class="focus-product-tag">LiftUp</span>
+                </div>
+                <h3 class="focus-card-title">Intentional fitness</h3>
+                <p class="focus-card-desc">
+                  Minimalist strength tracker and routine logger. Completely private with zero social feeds, leaderboard
+                  pressures, or invasive fitness spam.
+                </p>
+                <div class="focus-card-action">
+                  <a href="#products" class="focus-product-link footer-product-trigger" data-product-id="liftup">
+                    <span>Explore LiftUp</span>
+                    <span class="btn-arrow-bubble">
+                      <i data-lucide="arrow-up-right"></i>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 05: Finance -->
+          <article class="focus-card" data-focus="finance" data-index="05">
+            <div class="focus-card-collapsed">
+              <span class="focus-collapsed-num">05</span>
+              <span class="focus-collapsed-title">Private personal finance</span>
+            </div>
+            <div class="focus-card-expanded">
+              <div class="focus-media-placeholder" aria-label="Media slot for personal finance">
+                <div class="placeholder-empty-tag">
+                  <i data-lucide="image"></i>
+                  <span>Empty Media Slot</span>
+                </div>
+              </div>
+              <div class="focus-card-body">
+                <div class="focus-meta-row">
+                  <span class="focus-badge">05 / Finance</span>
+                  <span class="focus-product-tag">Rūpa</span>
+                </div>
+                <h3 class="focus-card-title">Private personal finance</h3>
+                <p class="focus-card-desc">
+                  Offline-first personal cash flow and ledger. Built for complete financial sovereignty without
+                  third-party bank linking or cloud exposure.
+                </p>
+                <div class="focus-card-action">
+                  <a href="#products" class="focus-product-link footer-product-trigger" data-product-id="rupa">
+                    <span>Explore Rūpa</span>
+                    <span class="btn-arrow-bubble">
+                      <i data-lucide="arrow-up-right"></i>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Showcase (Inspired by metic.studio) -->
+    <section class="products-showcase-section" id="products">
+      <div class="container">
+        <div class="products-header-row">
+          <div class="editorial-label">
+            <span>Products ↘</span>
+          </div>
+          <span class="products-header-subtitle">Focused tools. Zero distractions. 100% private.</span>
+        </div>
+
+        <!-- Metic.studio Style Alternating Product Showcase -->
+        <div class="products-metic-list" id="products-grid"></div>
+
+        <!-- Products Bottom Bar -->
+        <div class="products-bottom-bar">
+          <span class="products-count-label">Focused tools. Zero distractions. 100% private.</span>
+          <a href="#who-we-are" class="minimal-pill-btn sm">
+            <span>Who we are</span>
+            <span class="btn-arrow-bubble">
+              <i data-lucide="arrow-down-right"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Philosophy & Principles (Inspired by jarcos.work) -->
+    <section class="editorial-section" id="philosophy">
+      <div class="container">
+        <!-- Row 1: Philosophy -->
+        <div class="editorial-row">
+          <div class="editorial-label">
+            <span>Philosophy ↘</span>
+          </div>
+          <div class="editorial-body">
+            <h2 class="editorial-statement">Useful software. Less noise.</h2>
+            <p class="editorial-text">
+              Modern apps often ask for more attention than the work itself. We take a different approach: start with a
+              real problem, remove unnecessary friction, and keep the interface focused on what matters.
+            </p>
+            <p class="editorial-text">
+              Minimalism is not about removing everything. It is about keeping the right things visible. We design
+              around clear hierarchy, fast interactions, purposeful restraint, and workflows that feel completely
+              natural.
+            </p>
+          </div>
+        </div>
+
+        <!-- Row 2: Principles (Inspired by ownitt.fr) -->
+        <div class="editorial-row" id="principles">
+          <div class="editorial-label">
+            <span>Principles ↘</span>
+            <p class="principles-helper-note">
+              Explore each territory to discover our software philosophy.
+            </p>
+          </div>
+          <div class="editorial-body">
+            <div class="principles-ownitt-list" id="principles-columns"></div>
+          </div>
+        </div>
+
+        <!-- Row 3: Who We Are (Aligned with Philosophy / Principles / Focus Style) -->
+        <div class="editorial-row" id="who-we-are">
+          <div class="editorial-label">
+            <span>Who We Are ↘</span>
+          </div>
+          <div class="editorial-body">
+            <h2 class="editorial-statement">Independent software. Focused on what matters.</h2>
+            <p class="editorial-text">
+              <span class="brand-text" style="font-weight: 600; color: var(--text-primary);">biletlabs</span> is an
+              independent digital product studio. We work with an intentional focus across writing, productivity,
+              planning,
+              fitness, and personal finance, delivering distraction-free applications with a lean footprint.
+            </p>
+            <p class="editorial-text">
+              We design and engineer calm software in small, focused iterations. Product thinkers, designers, and
+              software builders close to the problem, close to the result. No bloated decks. No invasive data
+              collection, algorithmic engagement traps, or forced subscriptions. Just purposeful software built to get
+              out of your way and respect your attention.
+            </p>
+
+            <div class="who-we-are-creator-card">
+              <div class="creator-badge-row">
+                <span class="creator-name">Habeebu Rahman CA</span>
+                <span class="creator-role">Founder & Product Designer</span>
+              </div>
+              <p class="creator-desc">
+                Creator behind Bilet, Bilet-X, Bilo, LiftUp, and Rūpa. Passionate about building peaceful,
+                distraction-free digital tools that make daily life simpler.
+              </p>
+            </div>
+
+            <div class="who-we-are-action">
+              <a href="#what-we-do" class="minimal-pill-btn">
+                <span>Explore what we do</span>
+                <span class="btn-arrow-bubble" aria-hidden="true">
+                  <i data-lucide="arrow-down"></i>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 4: What We Do (Aligned with Philosophy / Principles / Focus Style) -->
+        <div class="editorial-row what-we-do-row" id="what-we-do">
+          <div class="editorial-label sticky-label">
+            <span>What We Do ↘</span>
+
+          </div>
+          <div class="editorial-body what-we-do-body">
+            <!-- Stacking Cards Deck -->
+            <div class="stack-cards-wrapper" id="stack-cards">
+              <!-- Card 1 -->
+              <article class="stack-card" data-card="1">
+                <div class="stack-card-inner">
+                  <div class="stack-card-top-row">
+                    <div class="stack-card-icon-wrap">
+                      <i data-lucide="pen-tool"></i>
+                    </div>
+                    <h3 class="stack-card-title">UX/UI Design</h3>
+                  </div>
+                  <div class="stack-card-content">
+                    <p class="stack-card-desc">
+                      Calm interfaces with purposeful restraint, clear typography, and zero noise.
+                    </p>
+                  </div>
+                </div>
+                <!-- Big bold low-opacity watermark number below text -->
+                <span class="stack-card-watermark-num" aria-hidden="true">01</span>
+              </article>
+
+              <!-- Card 2 -->
+              <article class="stack-card" data-card="2">
+                <div class="stack-card-inner">
+                  <div class="stack-card-top-row">
+                    <div class="stack-card-icon-wrap">
+                      <i data-lucide="monitor"></i>
+                    </div>
+                    <h3 class="stack-card-title">Product Development</h3>
+                  </div>
+                  <div class="stack-card-content">
+                    <p class="stack-card-desc">
+                      Fast native applications that launch instantly and run completely offline.
+                    </p>
+                  </div>
+                </div>
+                <!-- Big bold low-opacity watermark number below text -->
+                <span class="stack-card-watermark-num" aria-hidden="true">02</span>
+              </article>
+
+              <!-- Card 3 -->
+              <article class="stack-card" data-card="3">
+                <div class="stack-card-inner">
+                  <div class="stack-card-top-row">
+                    <div class="stack-card-icon-wrap">
+                      <i data-lucide="shield-check"></i>
+                    </div>
+                    <h3 class="stack-card-title">Zero-Telemetry Privacy</h3>
+                  </div>
+                  <div class="stack-card-content">
+                    <p class="stack-card-desc">
+                      Local-first architectures with 100% data ownership and no analytics.
+                    </p>
+                  </div>
+                </div>
+                <!-- Big bold low-opacity watermark number below text -->
+                <span class="stack-card-watermark-num" aria-hidden="true">03</span>
+              </article>
+
+              <!-- Card 4 -->
+              <article class="stack-card" data-card="4">
+                <div class="stack-card-inner">
+                  <div class="stack-card-top-row">
+                    <div class="stack-card-icon-wrap">
+                      <i data-lucide="layers"></i>
+                    </div>
+                    <h3 class="stack-card-title">Focused Utility Architecture</h3>
+                  </div>
+                  <div class="stack-card-content">
+                    <p class="stack-card-desc">
+                      Single-purpose clarity designed to do one task exceptionally well.
+                    </p>
+                  </div>
+                </div>
+                <!-- Big bold low-opacity watermark number below text -->
+                <span class="stack-card-watermark-num" aria-hidden="true">04</span>
+              </article>
+
+              <!-- Card 5 -->
+              <article class="stack-card" data-card="5">
+                <div class="stack-card-inner">
+                  <div class="stack-card-top-row">
+                    <div class="stack-card-icon-wrap">
+                      <i data-lucide="zap"></i>
+                    </div>
+                    <h3 class="stack-card-title">Ergonomic Keyboard Flow</h3>
+                  </div>
+                  <div class="stack-card-content">
+                    <p class="stack-card-desc">
+                      Instant response, near-zero memory footprint, and intuitive shortcuts.
+                    </p>
+                  </div>
+                </div>
+                <!-- Big bold low-opacity watermark number below text -->
+                <span class="stack-card-watermark-num" aria-hidden="true">05</span>
+              </article>
+
+              <!-- Card 6: The Highlight Card (in pure high-contrast monochromatic style) -->
+              <article class="stack-card is-highlight" data-card="6">
+                <div class="stack-card-inner">
+                  <div class="stack-card-top-row">
+                    <div class="stack-card-icon-wrap">
+                      <i data-lucide="sparkles"></i>
+                    </div>
+                    <h3 class="stack-card-title">Customized & Intentional</h3>
+                  </div>
+                  <div class="stack-card-content">
+                    <p class="stack-card-desc">
+                      Software tailored to your natural daily rhythm, calm, private, and uncompromised.
+                    </p>
+                  </div>
+                </div>
+                <!-- Big bold low-opacity watermark number below text -->
+                <span class="stack-card-watermark-num" aria-hidden="true">06</span>
+              </article>
+            </div>
+
+            <!-- Manifesto Statement after the cards (matching reference screenshot) -->
+            <div class="what-we-do-manifesto">
+              <h3 class="manifesto-statement-text">
+                We don’t offer a fixed stack. We adapt to what your product needs, fast or foundational, frontend or
+                backend.
+              </h3>
+              <div class="manifesto-arrow-wrap">
+                <a href="#contact" class="minimal-pill-btn" aria-label="Start a conversation">
+                  <span>Start a conversation</span>
+                  <span class="btn-arrow-bubble" aria-hidden="true">
+                    <i data-lucide="arrow-down-right"></i>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Minimalist Contact Section (Inspired by metic.studio) -->
+    <section class="contact-minimal-section" id="contact">
+      <div class="container">
+        <div class="contact-section-header">
+          <div class="editorial-label">
+            <span>Contact ↘</span>
+          </div>
+        </div>
+
+        <!-- Metic.studio Style Contact Banner Card -->
+        <div class="contact-metic-card">
+          <div class="contact-card-content">
+            <h2 class="contact-metic-headline">Let’s get to know each other.</h2>
+            <p class="contact-metic-subtext">
+              A quick email in person or a call online. No obligation, but precise. Have feedback about one of our
+              products, an idea worth exploring, or a potential collaboration? We value direct, thoughtful
+              conversations.
+            </p>
+
+            <div class="contact-metic-action">
+              <a href="mailto:contact@biletlabs.com" class="contact-metic-btn"
+                aria-label="Send email to contact@biletlabs.com">
+                <span>Start a conversation</span>
+                <span class="btn-arrow-bubble">
+                  <i data-lucide="arrow-up-right"></i>
+                </span>
+              </a>
+            </div>
+
+            <div class="contact-metic-meta-row">
+              <div class="contact-meta-item">
+                <span class="label">Direct email</span>
+                <span class="val">contact@biletlabs.com</span>
+              </div>
+              <div class="contact-meta-item">
+                <span class="label">Response time</span>
+                <span class="val">Within 24 to 48 hours</span>
+              </div>
+              <div class="contact-meta-item">
+                <span class="label">Studio</span>
+                <span class="val brand-text" style="font-weight: 600;">biletlabs</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metic.studio Iconic Massive Geometric Disc (Monochromatic Theme) -->
+          <div class="contact-graphic-wrap" aria-hidden="true">
+            <div class="contact-geometric-disc">
+              <span class="disc-accent-target"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Colossal JARCOS-style Footer -->
+  <footer class="site-footer-minimal">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div>
+          <div class="footer-col-title">Relevant Products</div>
+          <ul class="footer-col-links">
+            <li><a href="product.html?id=bilet">Bilet (Writing)</a></li>
+            <li><a href="product.html?id=bilet-x">Bilet-X (Desktop)</a></li>
+            <li><a href="product.html?id=bilo">Bilo (Projects)</a></li>
+            <li><a href="product.html?id=liftup">LiftUp (Fitness)</a></li>
+            <li><a href="product.html?id=rupa">Rūpa (Finance)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Studio</div>
+          <ul class="footer-col-links">
+            <li><a href="#who-we-are">Who We Are</a></li>
+            <li><a href="#what-we-do">What We Do</a></li>
+            <li><a href="#philosophy">Philosophy</a></li>
+            <li><a href="#principles">Principles</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Quick Links</div>
+          <ul class="footer-col-links">
+            <li><a href="mailto:contact@biletlabs.com">Email Studio</a></li>
+            <li><a href="#hero">Back to top ↗</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Statement</div>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+            This is a small selection of focused applications. Built with intention.
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-credits-row">
+        <span>© 2026 <span class="brand-text"
+            style="font-weight: 600; color: var(--text-primary);">biletlabs</span>. Built with intention.</span>
+        <span>Minimalist, distraction-free software</span>
+      </div>
+
+      <!-- Massive Colossal JARCOS-style Brand Wordmark -->
+      <div class="colossal-brand-wrap" aria-hidden="true">
+        <span class="colossal-brand">biletlabs</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="js/app.js"></script>
+</body>
+
+</html>
