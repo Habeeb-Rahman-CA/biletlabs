@@ -1,0 +1,223 @@
+/* ===================================================================
+   biletlabs responsive design system
+   all lowercase, clean mobile-first & tablet balance.
+   =================================================================== */
+
+@media (max-width: 1080px) {
+  .metic-row-columns {
+    gap: 3rem;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 860px) {
+  .hero-canvas-card {
+    padding: 2.5rem 1.65rem;
+    min-height: auto;
+    border-radius: 20px;
+  }
+
+  .editorial-row {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .sticky-label {
+    position: static;
+  }
+
+  .stack-card[data-card] {
+    position: relative;
+    top: auto;
+    width: 100%;
+    margin-bottom: 1.25rem;
+  }
+
+  .stack-card-inner {
+    gap: 1.25rem;
+  }
+
+  .focus-accordion {
+    flex-direction: column;
+    height: auto;
+    gap: 0.85rem;
+  }
+
+  .focus-card {
+    min-width: 100%;
+    height: auto;
+    min-height: 64px;
+  }
+
+  .focus-card.is-active {
+    flex: none;
+  }
+
+  .focus-card-collapsed {
+    position: static;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.15rem 1.35rem;
+  }
+
+  .focus-collapsed-title {
+    writing-mode: horizontal-tb;
+    transform: none;
+    font-size: 1.05rem;
+    margin-top: 0;
+  }
+
+  .focus-card.is-active .focus-card-collapsed {
+    display: none;
+  }
+
+  .focus-card-expanded {
+    padding: 1.35rem;
+  }
+
+  .focus-media-placeholder {
+    height: 190px;
+  }
+
+  .principle-row-main {
+    grid-template-columns: 1fr 32px;
+    gap: 0.75rem;
+  }
+
+  .principle-meta-tag {
+    grid-column: 1 / -1;
+    padding-top: 0;
+    margin-bottom: 0.25rem;
+  }
+
+  .principle-drawer {
+    margin-left: 0;
+  }
+
+  .principle-desc {
+    font-size: 0.95rem;
+  }
+
+  .editorial-label {
+    position: static;
+  }
+
+  .modal-header {
+    padding: 2.25rem 1.75rem 1.25rem;
+  }
+
+  .modal-content-body {
+    padding: 1.75rem;
+    gap: 2rem;
+  }
+
+  .problem-solution-grid,
+  .modal-gallery-grid,
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-footer {
+    padding: 1.25rem 1.75rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .products-metic-list {
+    gap: 5.5rem;
+  }
+
+  .metic-row-columns,
+  .metic-product-row.is-reversed .metic-row-columns {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .metic-product-row .metic-media-col,
+  .metic-product-row.is-reversed .metic-media-col {
+    order: 1;
+  }
+
+  .metic-product-row .metic-content-col,
+  .metic-product-row.is-reversed .metic-content-col {
+    order: 2;
+  }
+
+  .metic-watermark-num {
+    font-size: clamp(4.5rem, 16vw, 7rem);
+    top: -1.25rem;
+  }
+
+  .contact-metic-card {
+    padding: 3rem 2.25rem;
+    min-height: auto;
+  }
+
+  .contact-graphic-wrap {
+    right: -25%;
+    top: auto;
+    bottom: -30%;
+    transform: none;
+    width: 320px;
+    height: 320px;
+    opacity: 0.15;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .hero-minimal-section {
+    padding-top: 1rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-canvas-card {
+    padding: 1.75rem 1.25rem;
+    border-radius: 18px;
+  }
+
+  .focus-section,
+  .editorial-row,
+  .products-showcase-section,
+  .contact-minimal-section {
+    padding-top: 3rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .products-metic-list {
+    gap: 4rem;
+  }
+
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-metic-card {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .contact-metic-btn {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .contact-metic-meta-row {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .footer-credits-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

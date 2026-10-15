@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <rect width="48" height="48" rx="10" fill="#222831"/>
+  <!-- Minimalist B & L geometry -->
+  <path d="M14 12V36H24C27.3137 36 30 33.3137 30 30C30 27.6 28.5 25.5 26.5 24.6C28 23.8 29 22.1 29 20C29 17.2386 26.7614 15 24 15H14" stroke="#F7F7F5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M14 24H23" stroke="#F7F7F5" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="34" cy="14" r="3" fill="#FFD369"/>
+</svg>

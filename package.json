@@ -1,0 +1,17 @@
+{
+  "name": "biletlabs-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimalist, modern portfolio website for biletlabs and its product family",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  },
+  "dependencies": {
+    "lucide": "^1.57.0"
+  }
+}
