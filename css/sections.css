@@ -467,27 +467,21 @@
 
 .hand-circle-svg {
   position: absolute;
-  top: -24%;
-  left: -10%;
-  width: 120%;
-  height: 148%;
+  top: -17%;
+  left: -6%;
   pointer-events: none;
   overflow: visible;
   z-index: 3;
 }
 
 .hand-circle-svg.loop-2 {
-  top: -24%;
+  top: -11%;
   left: -12%;
-  width: 124%;
-  height: 148%;
 }
 
 .hand-circle-svg.loop-3 {
-  top: -24%;
-  left: -7%;
-  width: 114%;
-  height: 148%;
+  top: -20%;
+  left: -6%;
 }
 
 .hand-circle-svg path {
