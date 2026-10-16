@@ -55,6 +55,7 @@ function refreshIcons() {
 // Initialize on DOM Ready
 document.addEventListener('DOMContentLoaded', () => {
   document.documentElement.setAttribute('data-theme', 'dark');
+  initSplashScreen();
   initFocusAccordion();
   initPrinciples();
   initStackCards();
@@ -63,6 +64,54 @@ document.addEventListener('DOMContentLoaded', () => {
   checkUrlHash();
   refreshIcons();
 });
+
+/* ===================================================================
+   1. SPLASH SCREEN & SMOOTH SHUTTER REVEAL
+   =================================================================== */
+function initSplashScreen() {
+  const splash = document.getElementById('splash-screen');
+  if (!splash) return;
+
+  // Lock scroll during splash presentation
+  document.body.classList.add('splash-active');
+
+  let revealed = false;
+
+  function triggerShutterOpen() {
+    if (revealed) return;
+    revealed = true;
+
+    // Trigger smooth shutter parting animation
+    splash.classList.add('is-revealing');
+    document.body.classList.add('splash-revealed');
+
+    // Once shutter transition finishes, clean up and restore scroll
+    setTimeout(() => {
+      splash.classList.add('is-finished');
+      document.body.classList.remove('splash-active');
+      splash.setAttribute('aria-hidden', 'true');
+    }, 1300);
+  }
+
+  // Hold on black screen with centered biletlabs brand for 2 seconds
+  const revealTimeout = setTimeout(() => {
+    triggerShutterOpen();
+  }, 2000);
+
+  // Optional: User can tap/click or press Escape to skip immediately
+  splash.addEventListener('click', () => {
+    clearTimeout(revealTimeout);
+    triggerShutterOpen();
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' || e.key === ' ' || e.key === 'Enter') {
+      clearTimeout(revealTimeout);
+      triggerShutterOpen();
+    }
+  }, { once: true });
+}
+
 
 /* ===================================================================
    2. FOCUS HORIZONTAL EXPANDING ACCORDION
