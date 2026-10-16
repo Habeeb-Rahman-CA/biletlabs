@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>biletlabs | Minimalist, Distraction-Free Software</title>
+  <title>biletlabs</title>
   <meta name="description"
     content="biletlabs builds simple, distraction-free applications for writing, everyday productivity, task planning, fitness, and personal finance.">
   <meta name="keywords"
@@ -16,11 +16,11 @@
   <meta property="og:title" content="biletlabs | Minimalist, Distraction-Free Software">
   <meta property="og:description"
     content="Thoughtful digital tools for writing, planning, managing money, training, and staying focused. Built with intention.">
-  <meta property="og:image" content="/assets/logo.svg">
+  <meta property="og:image" content="/assets/images/biletlabs-icon-light.png">
   <meta name="twitter:card" content="summary_large_image">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="assets/images/biletlabs-icon-light.png">
 
   <!-- Google Fonts: Funnel Display, Inter Display & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +33,28 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body>
+<body class="splash-active">
+
+  <!-- Splash Screen (Full black screen with Funnel Display biletlabs typography & bottom-to-up shutter opening) -->
+  <div id="splash-screen" class="splash-screen" aria-label="biletlabs" role="dialog" aria-modal="true">
+    <div class="splash-shutter-curtain">
+      <!-- Subtle architectural rolling shutter slat grooves -->
+      <div class="splash-shutter-slats" aria-hidden="true"></div>
+
+      <!-- Centered biletlabs typography in Funnel Display -->
+      <div class="splash-content">
+        <div class="splash-brand-wrap">
+          <h1 class="splash-brand">biletlabs</h1>
+        </div>
+      </div>
+
+      <!-- Shutter bottom rim bar -->
+      <div class="splash-shutter-bottom-bar" aria-hidden="true">
+        <div class="splash-shutter-handle"></div>
+      </div>
+    </div>
+  </div>
+
 
   <main id="main-content">
     <!-- Hero Section (Inspired by awakeagency.dev drafting canvas in Dark Mode) -->
