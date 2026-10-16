@@ -109,12 +109,10 @@ function initPrinciples() {
 
   container.innerHTML = BRAND.principles.map((pr, idx) => `
     <article class="principle-ownitt-row ${idx === 0 ? 'is-active' : ''}" data-index="${idx}">
-      <div class="principle-row-main">
-        <div class="principle-meta-tag">
-          <span class="principle-dot" aria-hidden="true"></span>
-          <span class="principle-num">${String(idx + 1).padStart(2, '0')}</span>
-        </div>
+      <!-- Big bold low-opacity watermark number behind the content on the right -->
+      <span class="principle-watermark-num principle-num" aria-hidden="true">${String(idx + 1).padStart(2, '0')}</span>
 
+      <div class="principle-row-main">
         <div class="principle-title-wrap">
           <h3 class="principle-title-solid">${pr.title}</h3>
           <span class="principle-title-outline" aria-hidden="true">${pr.title}</span>
@@ -264,11 +262,6 @@ function renderProductsGrid() {
 
     return `
       <article class="metic-product-row ${isReversed ? 'is-reversed' : ''}" data-product-id="${p.id}">
-        <!-- Row Index Eyebrow -->
-        <div class="metic-row-eyebrow">
-          <span class="metic-eyebrow-text">${num} / ${total} Product 2026</span>
-        </div>
-
         <div class="metic-row-columns">
           <!-- Column: Mockup Window Container -->
           <div class="metic-media-col">
