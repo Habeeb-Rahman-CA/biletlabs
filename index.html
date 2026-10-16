@@ -390,35 +390,90 @@
       </div>
     </section>
 
-    <!-- Philosophy & Principles (Inspired by jarcos.work) -->
-    <section class="editorial-section" id="philosophy">
-      <div class="container">
-        <!-- Row 1: Philosophy -->
-        <div class="editorial-row">
-          <div class="editorial-label">
-            <span>Philosophy ↘</span>
-          </div>
-          <div class="editorial-body">
-            <h2 class="editorial-statement">Useful software. Less noise.</h2>
-            <p class="editorial-text">
-              Modern apps often ask for more attention than the work itself. We take a different approach: start with a
-              real problem, remove unnecessary friction, and keep the interface focused on what matters.
-            </p>
-            <p class="editorial-text">
-              Minimalism is not about removing everything. It is about keeping the right things visible. We design
-              around clear hierarchy, fast interactions, purposeful restraint, and workflows that feel completely
-              natural.
+    <!-- Philosophy Showcase Section (Editorial manifesto with hand-drawn focus circles) -->
+    <section class="philosophy-section" id="philosophy">
+      <!-- Background subtle architectural compass watermark (Mirroring reference background) -->
+      <div class="philosophy-watermark-wrap" aria-hidden="true">
+        <svg class="philosophy-watermark-svg" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Concentric circles -->
+          <circle cx="450" cy="450" r="420" stroke="rgba(255, 255, 255, 0.065)" stroke-width="1" />
+          <circle cx="450" cy="450" r="290" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1" stroke-dasharray="4 6" />
+          <circle cx="450" cy="450" r="160" stroke="rgba(255, 255, 255, 0.055)" stroke-width="1" />
+          <circle cx="450" cy="450" r="50" stroke="rgba(255, 255, 255, 0.06)" stroke-width="1" stroke-dasharray="2 4" />
+          <circle cx="450" cy="450" r="3.5" fill="rgba(255, 255, 255, 0.35)" />
+          
+          <!-- Primary axes (Vertical & Horizontal) -->
+          <line x1="450" y1="15" x2="450" y2="885" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1" stroke-dasharray="3 6" />
+          <line x1="15" y1="450" x2="885" y2="450" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1" stroke-dasharray="3 6" />
+          
+          <!-- Diagonal cross axes -->
+          <line x1="150" y1="150" x2="750" y2="750" stroke="rgba(255, 255, 255, 0.035)" stroke-width="1" />
+          <line x1="150" y1="750" x2="750" y2="150" stroke="rgba(255, 255, 255, 0.035)" stroke-width="1" />
+          
+          <!-- Compass tick marks -->
+          <line x1="450" y1="20" x2="450" y2="40" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.5" />
+          <line x1="450" y1="860" x2="450" y2="880" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.5" />
+          <line x1="20" y1="450" x2="40" y2="450" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.5" />
+          <line x1="860" y1="450" x2="880" y2="450" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1.5" />
+        </svg>
+      </div>
+
+      <div class="container philosophy-container">
+        <!-- Top Meta Header Bar -->
+        <div class="philosophy-top-bar">
+          <span class="philosophy-meta-label">Philosophy ↘</span>
+        </div>
+
+        <!-- Main Manifesto Text with Hand-Drawn Circled Words -->
+        <div class="philosophy-manifesto">
+          <p class="philosophy-statement">
+            Modern apps ask for too much attention, turning everyday work into noise. At biletlabs, we build 
+            <span class="hand-circle-wrap">
+              <span class="hand-circle-text">useful software</span>
+              <svg class="hand-circle-svg loop-1" viewBox="0 0 285 90" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M 22 52 C 12 44, 10 28, 22 18 C 38 6, 115 8, 250 11 C 285 12, 304 22, 302 42 C 300 62, 278 72, 230 76 C 150 82, 60 78, 18 58 C 8 50, 9 36, 24 28 C 38 20, 80 22, 110 24" vector-effect="non-scaling-stroke" />
+              </svg>
+            </span>
+            that gets out of your way. Without algorithmic engagement traps or feature bloat, our focus stays strictly on 
+            <span class="hand-circle-wrap">
+              <span class="hand-circle-text">less noise</span>
+              <svg class="hand-circle-svg loop-2" viewBox="0 0 190 90" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M 20 32 C 10 44, 12 62, 26 70 C 46 80, 160 78, 192 68 C 214 62, 218 42, 210 26 C 198 10, 145 6, 75 8 C 30 10, 12 20, 16 42 C 19 56, 38 64, 58 66" vector-effect="non-scaling-stroke" />
+              </svg>
+            </span>
+            and quiet clarity.
+          </p>
+
+          <p class="philosophy-statement philosophy-statement-secondary">
+            Minimalism is not about removing everything — it is about keeping 
+            <span class="hand-circle-wrap">
+              <span class="hand-circle-text">the right things visible</span>
+              <svg class="hand-circle-svg loop-3" viewBox="0 0 360 90" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M 26 50 C 14 40, 12 22, 30 14 C 65 3, 225 6, 340 10 C 374 12, 384 28, 380 46 C 374 66, 340 76, 280 80 C 175 84, 65 80, 20 56 C 8 46, 12 32, 32 24 C 52 18, 95 20, 130 23" vector-effect="non-scaling-stroke" />
+              </svg>
+            </span>
+            so you can do your best work without distraction.
+          </p>
+        </div>
+
+        <!-- Asymmetric Supporting Column (Bottom Right, matching reference structure) -->
+        <div class="philosophy-aside-row">
+          <div class="philosophy-aside-block">
+            <p class="philosophy-aside-text">
+              At first indifference, then curiosity. We start with a real human problem, remove unnecessary friction, and keep the interface focused on what truly matters. Clear visual hierarchy, fast tactile interactions, purposeful restraint, and workflows that feel completely natural. Calm software built to get out of your way and respect your attention.
             </p>
           </div>
         </div>
+      </div>
+    </section>
 
+    <!-- Studio Principles, Who We Are & What We Do -->
+    <section class="editorial-section" id="studio-principles">
+      <div class="container">
         <!-- Row 2: Principles (Inspired by ownitt.fr) -->
         <div class="editorial-row" id="principles">
           <div class="editorial-label">
             <span>Principles ↘</span>
-            <p class="principles-helper-note">
-              Explore each territory to discover our software philosophy.
-            </p>
           </div>
           <div class="editorial-body">
             <div class="principles-ownitt-list" id="principles-columns"></div>

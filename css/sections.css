@@ -377,6 +377,192 @@
   transform: translate(2px, -2px);
 }
 
+/* ===================================================================
+   PHILOSOPHY SHOWCASE SECTION (Editorial Manifesto with Hand-Drawn Circles)
+   =================================================================== */
+.philosophy-section {
+  position: relative;
+  padding: 7.5rem 0 7rem;
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+/* Subtle Architectural / Compass Watermark (Mirroring reference background) */
+.philosophy-watermark-wrap {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(860px, 94vw);
+  height: min(860px, 94vw);
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.65;
+}
+
+.philosophy-watermark-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.philosophy-container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Top Label Row */
+.philosophy-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 2.25rem;
+  margin-bottom: 3.5rem;
+}
+
+.philosophy-meta-label {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-tertiary);
+  letter-spacing: -0.01em;
+}
+
+/* Main Manifesto Text */
+.philosophy-manifesto {
+  margin: 0 auto;
+}
+
+.philosophy-statement {
+  font-family: 'Inter Tight', var(--font-display);
+  font-size: clamp(2.05rem, 3.5vw, 3.45rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.44;
+  letter-spacing: -0.025em;
+  margin-bottom: 2.25rem;
+}
+
+.philosophy-statement-secondary {
+  font-size: clamp(1.9rem, 3.2vw, 3.15rem);
+  margin-bottom: 3.5rem;
+}
+
+/* Hand-Drawn Circled Words (Signature Feature) */
+.hand-circle-wrap {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  padding: 0 0.12em;
+  margin: 0 0.04em;
+  vertical-align: baseline;
+}
+
+.hand-circle-text {
+  position: relative;
+  z-index: 2;
+  color: var(--text-primary);
+}
+
+.hand-circle-svg {
+  position: absolute;
+  top: -17%;
+  left: -6%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 3;
+}
+
+.hand-circle-svg.loop-2 {
+  top: -11%;
+  left: -12%;
+}
+
+.hand-circle-svg.loop-3 {
+  top: -20%;
+  left: -6%;
+}
+
+.hand-circle-svg path {
+  fill: none;
+  stroke: var(--text-primary);
+  stroke-width: 2.1px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  opacity: 0.95;
+  transition: stroke-width var(--transition-fast), filter var(--transition-fast);
+}
+
+/* Interactive Hover Glow */
+.hand-circle-wrap:hover .hand-circle-svg path {
+  stroke-width: 2.6px;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.45));
+}
+
+/* Asymmetric Supporting Column (Bottom Right, matching reference structure) */
+.philosophy-aside-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.philosophy-aside-block {
+  max-width: 440px;
+  background: transparent;
+}
+
+.philosophy-aside-text {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+
+/* Mobile & Tablet Adjustments */
+@media (max-width: 768px) {
+  .philosophy-section {
+    padding: 4.5rem 0 4rem;
+  }
+
+  .philosophy-top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .philosophy-top-bar .philosophy-meta-center {
+    display: none;
+  }
+
+  .philosophy-statement {
+    font-size: 1.6rem;
+    line-height: 1.45;
+    margin-bottom: 1.75rem;
+  }
+
+  .philosophy-statement-secondary {
+    font-size: 1.45rem;
+    line-height: 1.45;
+    margin-bottom: 2.5rem;
+  }
+
+  .hand-circle-wrap {
+    padding: 0.05em 0.35em;
+  }
+
+  .philosophy-aside-row {
+    margin-top: 2rem;
+  }
+
+  .philosophy-aside-block {
+    max-width: 100%;
+    padding: 1.35rem 1.5rem;
+  }
+}
+
 /* --- 3. Editorial Two-Column Rows (Inspired by jarcos.work) --- */
 .editorial-section {
   padding: 0;
@@ -472,7 +658,7 @@
 /* What We Do Stacking Cards (Focus & Philosophy Aligned) */
 .what-we-do-row {
   position: relative;
-  padding: 5rem 0 6rem;
+  padding: 5rem 0 0rem;
 }
 
 .sticky-label {
@@ -487,7 +673,6 @@
   flex-direction: column;
   width: 100%;
   max-width: 840px;
-  padding-bottom: 360px;
 }
 
 .stack-card {
@@ -663,7 +848,6 @@
 
 /* Manifesto Statement after cards */
 .what-we-do-manifesto {
-  margin-top: 4.5rem;
   padding-top: 3rem;
   padding-bottom: 6rem;
   max-width: 780px;
@@ -704,6 +888,7 @@
   padding: 2.25rem 0;
   border-top: 1px solid var(--border-subtle);
   position: relative;
+  overflow: hidden;
   cursor: pointer;
   transition: padding 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
 }
@@ -716,47 +901,37 @@
   border-color: rgba(255, 255, 255, 0.28);
 }
 
+/* Big bold low-opacity watermark number behind principle content on the right */
+.principle-watermark-num {
+  position: absolute;
+  right: clamp(1rem, 3.5vw, 3rem);
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 10vw, 8rem);
+  font-weight: 800;
+  line-height: 0.75;
+  color: rgba(255, 255, 255, 0.055);
+  letter-spacing: -0.04em;
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+  transition: color 0.35s ease, transform 0.35s ease;
+}
+
+.principle-ownitt-row:hover .principle-watermark-num,
+.principle-ownitt-row.is-active .principle-watermark-num {
+  color: rgba(255, 255, 255, 0.1);
+  transform: translateY(calc(-50% - 2px));
+}
+
 .principle-row-main {
   display: grid;
-  grid-template-columns: 64px 1fr 36px;
+  grid-template-columns: 1fr 36px;
   align-items: start;
-  gap: 1.5rem;
-}
-
-.principle-meta-tag {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding-top: 0.75rem;
-}
-
-.principle-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--text-primary);
-  display: inline-block;
-  transition: transform 0.3s ease;
-  flex-shrink: 0;
-}
-
-.principle-ownitt-row:hover .principle-dot,
-.principle-ownitt-row.is-active .principle-dot {
-  transform: scale(1.35);
-}
-
-.principle-num {
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-tertiary);
-  letter-spacing: 0.05em;
-  transition: color 0.3s ease;
-}
-
-.principle-ownitt-row:hover .principle-num,
-.principle-ownitt-row.is-active .principle-num {
-  color: var(--text-primary);
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .principle-title-wrap {
@@ -838,12 +1013,14 @@
 }
 
 .principle-drawer {
-  margin-left: calc(64px + 1.5rem);
+  margin-left: 0;
   display: grid;
   grid-template-rows: 0fr;
   transition: grid-template-rows 0.48s cubic-bezier(0.16, 1, 0.3, 1),
               margin-top 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   margin-top: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .principle-ownitt-row.is-active .principle-drawer {
